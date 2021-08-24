@@ -1,2 +1,9 @@
-<h1>Consoles#new</h1>
-<p>Find me in app/views/consoles/new.html.erb</p>
+<h1>Create a new console:</h1>
+<%= simple_form_for @console do |f| %>
+  <%= f.input :name %>
+  <%= f.input :price_per_day %>
+  <%= f.input :min_rental_time %>
+  <%= f.input :max_rental_tine %>
+  <%= f.submit %>
+
+<%= link_to 'Back', consoles_index_path %>
