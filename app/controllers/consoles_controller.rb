@@ -17,6 +17,7 @@ class ConsolesController < ApplicationController
       redirect_to @console, notice: 'Console was succesfullly created 👍'
     else
       render :new
+    end
   end
 
   def edit; end
