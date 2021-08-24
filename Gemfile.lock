@@ -90,7 +90,7 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
-    faker (2.18.0)
+    faker (2.19.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.3)
     font-awesome-sass (5.15.1)
@@ -115,7 +115,7 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.8)
-    nokogiri (1.12.3-x86_64-darwin)
+    nokogiri (1.12.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
@@ -154,7 +154,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.1)
+    rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
     railties (6.0.4.1)
       actionpack (= 6.0.4.1)
@@ -229,7 +229,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-  x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
