@@ -14,6 +14,7 @@ class ConsolesController < ApplicationController
 
   def create
     @console = Console.new(console_params)
+    @console.user = current_user
     if @console.save
       redirect_to @console, notice: 'Console was succesfullly created 👍'
     else
