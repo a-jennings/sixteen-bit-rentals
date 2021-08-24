@@ -1,2 +1,9 @@
-<h1>Consoles#edit</h1>
-<p>Find me in app/views/consoles/edit.html.erb</p>
+<h1>Edit console:</h1>
+<%= simple_form_for @console do |f| %>
+  <%= f.input :name %>
+  <%= f.input :price_per_day %>
+  <%= f.input :min_rental_time %>
+  <%= f.input :max_rental_tine %>
+  <%= f.submit %>
+
+<%= link_to 'Back', consoles_index_path %>
