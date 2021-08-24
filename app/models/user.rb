@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :address, presence: true
   validates :first_name, :last_name, format: { with: /\A([a-z]+[ \-.,']*)+\z/i, message: "only allows letters" }
   has_many :consoles, dependent: :destroy
+  has_many :rentals
 end
