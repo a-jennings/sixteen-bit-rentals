@@ -2,7 +2,7 @@
 <ul>
   <% @consoles.each do |console| %>
     <li>
-      <%= @console.name %> $ <%= @console.price_per_day %>
+      <%= link_to console.name , console_path(console.id) %> $ <%= console.price_per_day %>
     </li>
   <% end %>
 </ul>
