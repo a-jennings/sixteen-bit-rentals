@@ -1,5 +1,4 @@
 class ConsolesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
   before_action :console_list, only: [:show, :edit, :update]
 
   def index
