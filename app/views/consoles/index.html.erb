@@ -1,0 +1,8 @@
+<h1>Consoles Index!</h1>
+<ul>
+  <% @consoles.each do |console| %>
+    <li>
+      <%= @console.name %> $ <%= @console.price_per_day %>
+    </li>
+  <% end %>
+</ul>
