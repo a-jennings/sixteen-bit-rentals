@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
+puts "initialising seed"
 Console.destroy_all
+User.destroy_all
+puts "cleaned database"
 
 User.create(
     email: "test@test.com",
@@ -17,9 +19,11 @@ User.create(
     address: "test drive, testville, los testos",
     phone_number: "07123456789"
 )
+puts "created test user account"
 
+puts "generating users"
 100.times do
-  user = User.create(
+  user = User.new(
     email: Faker::Internet.email,
     password: Faker::Internet.password(min_length: 6),
     first_name: Faker::Name.first_name,
@@ -27,6 +31,7 @@ User.create(
     address: Faker::Address.full_address,
     phone_number: Faker::PhoneNumber.cell_phone_with_country_code
   )
+  puts "user #{user.first_name + user.last_name} generated" if user.save!
   rand(0..10).times do
     user.consoles.create(
       name: Faker::Game.platform,
@@ -34,5 +39,8 @@ User.create(
       min_rental_time: rand(0..14),
       max_rental_time: rand(15..30)
     )
+    puts "#console for #{user.first_name} generated"
   end
 end
+
+puts "database seeded"
