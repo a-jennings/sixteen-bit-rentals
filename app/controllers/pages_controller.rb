@@ -3,6 +3,4 @@ class PagesController < ApplicationController
   def home
     @consoles = Console.all
   end
-
-
 end
