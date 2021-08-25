@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "initialising seed"
+Rental.destroy_all
 Console.destroy_all
 User.destroy_all
 puts "cleaned database"
