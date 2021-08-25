@@ -11,3 +11,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// fonts
+@font-face {
+  font-family: 'hello-world';
+  src: url('hello-world.ttf') format('truetype');
+}
+
+* {
+  font-family: 'hello-world', monospace;
+}
