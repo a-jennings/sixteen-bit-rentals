@@ -14,7 +14,7 @@ class RentalsController < ApplicationController
                          console_id: @console.id,
                          user_id: @owner.id,
                          current_renter_id: current_user.id)
-    if @rental.save!
+    if @rental.save
       redirect_to console_path(@console)
     else
       render :new
