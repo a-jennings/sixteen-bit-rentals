@@ -6,4 +6,9 @@
     <%= link_to "Rent", new_console_rental_path(console_id: @console), class: "nes-btn is-primary" %>
     <%= link_to 'Back', consoles_path, class: "nes-btn is-secondary" %>
   </div>
+  <% if @rental %>
+    <div class="container mt-3">
+      <p>This console is currently rented</p>
+    </div>
+  <% end %>
 </div>
