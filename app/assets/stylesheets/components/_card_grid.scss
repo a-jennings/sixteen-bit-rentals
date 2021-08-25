@@ -1,8 +1,8 @@
 .cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  padding: 5px;
+  display: inline-flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
 
   a, a:hover {
     text-shadow: 4px 4px 0 rgba(0,0,0,0.3);
@@ -10,37 +10,9 @@
   }
 }
 
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+.card-category {
+  flex: 0 1 30%;
+  margin: 16px 8px;
+  max-width: 400px;
+  text-align: center;
 }
