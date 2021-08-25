@@ -1,11 +1,10 @@
-<h1>Rent the <%= @console.name %></h1>
-<p>from <%= @owner.first_name %> <%= @owner.last_name %></p>
-
-<h3>Rental price per day: $<%= @console.price_per_day %></h3>
-
-<h6>Minimum rental time: <%= @console.min_rental_time %> days</h6>
-<h6>Maximum rental time: <%= @console.max_rental_time %> days</h6>
-
-
-
-<%= link_to 'Back', console_path(@console) %>
+<div class="container text-center">
+  <h1>Rent the <%= @console.name %></h1>
+  <p>from <%= @owner.first_name %> <%= @owner.last_name %></p>
+  <h3>Rental price per day: $<%= @console.price_per_day %></h3>
+  <h6>Minimum rental time: <%= @console.min_rental_time %> days</h6>
+  <h6>Maximum rental time: <%= @console.max_rental_time %> days</h6>
+  <h4>How long would you like to rent this console for? (Between <%= @console.min_rental_time %> and <%= @console.max_rental_time %> days) </h4>
+  <button class="btn btn-primary">Rent this console</button>
+  <%= link_to 'Back', console_path(@console) %>
+</div>
