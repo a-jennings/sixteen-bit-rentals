@@ -3,6 +3,11 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   padding: 5px;
+
+  a, a:hover {
+    text-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+    color: white;
+  }
 }
 
 // Smallest device
