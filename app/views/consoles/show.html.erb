@@ -5,7 +5,9 @@
     <%= link_to "Rent", new_console_rental_path(console_id: @console), class: "btn btn-primary" %>
     <%= link_to 'Back', consoles_path, class: "btn btn-primary" %>
   </div>
-  <% if @rented %>
-    <p>This console is currently rented</p>
+  <% if @rental %>
+    <div class="container mt-3">
+      <p>This console is currently rented</p>
+    </div>
   <% end %>
 </div>

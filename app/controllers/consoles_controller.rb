@@ -7,7 +7,7 @@ class ConsolesController < ApplicationController
   end
 
   def show
-    @rental = true if Rental.where(console_id: @console.id).length.postive?
+    @rental = true if Rental.where(console_id: @console.id).length.positive?
   end
 
   def new
