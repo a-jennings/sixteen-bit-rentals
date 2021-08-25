@@ -7,4 +7,6 @@
 <p>Minimum rental time: <%= @console.min_rental_time %> </p>
 <p>Maximum rental time: <%= @console.max_rental_time %></p>
 
+<%= link_to 'Rent this console', new_console_rental_path(console_id: @console) %>
+
 <%= link_to 'Back', consoles_path %>

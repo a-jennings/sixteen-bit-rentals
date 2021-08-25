@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   get '/profile', to: 'users#profile'
   get '/users/:id', to: 'users#show'
-  resources :consoles
+  resources :consoles do
+    resources :rentals, only: %i[new create edit update]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
