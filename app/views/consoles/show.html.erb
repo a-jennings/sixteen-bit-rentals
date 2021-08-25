@@ -1,10 +1,9 @@
-<h1>Console Show Page</h1>
-
-<%= @console.name %>
-<p>Some sort of Image</p>
-<p>Maybe need to add a description to schema?</p>
-<p>Price per day: <%= @console.price_per_day %></p>
-<p>Minimum rental time: <%= @console.min_rental_time %> </p>
-<p>Maximum rental time: <%= @console.max_rental_time %></p>
-
-<%= link_to 'Back', consoles_path %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg');">
+  <div class="container">
+    <h1><%= @console.name %></h1>
+    <p> Price per day: £<%= @console.price_per_day %> <br> Minimum rental time: <%= @console.min_rental_time %> <br>Maximum rental time: <%= @console.max_rental_time %></p>
+    <%# <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+    <%= link_to "Rent", new_user_registration_path, class: "btn btn-primary" %>
+    <%= link_to 'Back', consoles_path, class: "btn btn-primary" %>
+  </div>
+</div>
