@@ -36,7 +36,8 @@ puts "generating users"
   rand(0..10).times do
     user.consoles.create(
       name: Faker::Game.platform,
-      price_per_day: rand(0.00..99.99),
+      description: Faker::Lorem.sentence(word_count: 10, supplemental: true, random_words_to_add: 245)
+      price_per_day: rand(1.00..49.99),
       min_rental_time: rand(0..14),
       max_rental_time: rand(15..30)
     )
