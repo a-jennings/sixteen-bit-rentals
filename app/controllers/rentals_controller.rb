@@ -9,17 +9,16 @@ class RentalsController < ApplicationController
   def create
     @console = Console.find(params[:console_id])
     @owner = User.find(@console.user_id)
-    @rental = Rental.new(start_rental_date: Date.today,
-                         end_rental_date: Date.today + (params[:rental][:current_rental_days]).to_i,
+    @rental = Rental.new(start_rental_date: rental_params[:start_rental_date],
+                         end_rental_date: rental_params[:end_rental_date],
                          console_id: @console.id,
                          user_id: @owner.id,
                          current_renter_id: current_user.id)
-    if @rental.save!
+    if @rental.save
       redirect_to console_path(@console)
     else
       render :new
     end
-
   end
 
   def edit
@@ -31,6 +30,6 @@ class RentalsController < ApplicationController
   private
 
   def rental_params
-    params.require(:rental).permit(:current_rental_days)
+    params.require(:rental).permit(:current_rental_days, :start_rental_date, :end_rental_date)
   end
 end
