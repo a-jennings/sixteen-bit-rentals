@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: :profile
   def profile
     @user = current_user
+    @consoles = current_user.consoles
   end
 
   def show
