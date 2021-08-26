@@ -1,16 +1,16 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" >
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <% if user_signed_in? %>
-    <%= link_to consoles_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/xanldn89/image/upload/v1629881217/_logo_pd7mff.png", class:"navbar-logo" %>
-      <% end %>
+  <%= link_to consoles_path, class: "navbar-brand" do %>
+  <%= image_tag "https://res.cloudinary.com/xanldn89/image/upload/v1629881217/_logo_pd7mff.png", class:"navbar-logo" %>
+  <% end %>
   <% else %>
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/xanldn89/image/upload/v1629881217/_logo_pd7mff.png", class:"navbar-logo" %>
-      <% end %>
+  <%= link_to root_path, class: "navbar-brand" do %>
+  <%= image_tag "https://res.cloudinary.com/xanldn89/image/upload/v1629881217/_logo_pd7mff.png", class:"navbar-logo" %>
+  <% end %>
   <% end %>
 
-<div style="flex-grow:1;">
-  <%= form_tag consoles_path, method: :get, class:'d-flex' do %>
+  <div style="flex-grow:1;">
+    <%= form_tag consoles_path, method: :get, class:'d-flex' do %>
     <%= text_field_tag :query,
       params[:query],
       class: "nes-textarea",
@@ -18,10 +18,11 @@
       placeholder: "Find a console"
     %>
     <%= submit_tag "Search", class: "nes-btn is-primary", style: 'margin: 4px 6px;'%>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -29,26 +30,26 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <%# <li class="nav-item active">
+      <%# <li class="nav-item active">
           <%= link_to consoles_path, class: "nav-link" do %>
-            <%# <i class="fas fa-home" id= 'icon'></i> %>
-          <%# <% end %>
-        <%# </li> %>
-        <%# <li class="nav-item">
+      <%# <i class="fas fa-home" id= 'icon'></i> %>
+      <%# <% end %>
+      <%# </li> %>
+      <%# <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
-        <%# </li> %>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://res.cloudinary.com/xanldn89/image/upload/v1629891191/me_lmktss.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", profile_path , class: "dropdown-item" %>
-            <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
+      <%# </li> %>
+      <li class="nav-item dropdown">
+        <%= image_tag "https://res.cloudinary.com/xanldn89/image/upload/v1629891191/me_lmktss.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Profile", profile_path , class: "dropdown-item" %>
+          <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link nes-btn is-success", style: 'padding: 8px 8px; color:white;'%>
-        </li>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link nes-btn is-success", style: 'padding: 8px 8px; color:white;'%>
+      </li>
       <% end %>
     </ul>
   </div>
