@@ -1,7 +1,7 @@
 class RentalsController < ApplicationController
   before_action :gets_console
   before_action :gets_owner, only: %i[new create edit update]
-  before_action :gets_rental, only: %i[show edit update destroy]
+  before_action :gets_rental, only: %i[show confirm approve edit update destroy]
 
   def new
     @rental = Rental.new
@@ -21,7 +21,22 @@ class RentalsController < ApplicationController
     end
   end
 
-  def show; end
+  def confirm
+    @renter = User.find(@rental.current_renter_id)
+  end
+
+  def approve
+    @rental.update(approved?: true)
+    @rental.save
+    redirect_to console_rental_path(@console, @rental)
+  end
+
+  def show
+    @renter = User.find(@rental.current_renter_id)
+    if current_user.id == @console.user_id && @rental.approved? == false
+      redirect_to console_confirm_rental_path(@console, @rental)
+    end
+  end
 
   def edit; end
 
