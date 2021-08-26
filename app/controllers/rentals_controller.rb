@@ -1,7 +1,7 @@
 class RentalsController < ApplicationController
   before_action :gets_console
   before_action :gets_owner, only: %i[new create edit update]
-  before_action :gets_rental, only: %i[]
+  before_action :gets_rental, only: %i[show edit update destroy]
 
   def new
     @rental = Rental.new
