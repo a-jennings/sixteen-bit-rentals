@@ -40,12 +40,16 @@
                     <h5 class="mb-0">My consoles</h5><a href="#" class="btn btn-link text-muted">Show all</a>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" alt="" class="img-fluid rounded shadow-sm"><div class="centered"><%= @consoles[0].name %> <br> £<%= @consoles[0].price_per_day %></div></div>
-                    <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" alt="" class="img-fluid rounded shadow-sm"><div class="centered">SEGA SATURN</div></div>
-                    <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" alt="" class="img-fluid rounded shadow-sm"><div class="centered">SNES</div></div>
-                    <div class="col-lg-6 pl-lg-1"><img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" alt="" class="img-fluid rounded shadow-sm"><div class="centered">GAMEBOY</div></div>
-                    <div class="col-lg-6 pl-lg-1"> <p>I am renting:</p>
-                    <ul>
+
+                        <% @console_selection = @consoles.sample(4)  %>
+                        <div class="cards">
+                          <% @console_selection.each do |console| %>
+                            <%# <% url = console.photo.attached? ? cl_image_path(console.photo.key)  : "https://media.istockphoto.com/vectors/movie-time-vector-illustration-cinema-poster-concept-on-red-round-vector-id911590226?k=6&m=911590226&s=612x612&w=0&h=u6vP2FnJG8Ib3O1xofOUeJ5NtHWrWdRnV-OSL8arBnk=" %>
+                            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg')">
+                              <%= link_to console.name, console_path(console) %>
+                            </div>
+                          <% end %>
+                        </div>
                       <li>Playstation 4</li>
                       <li>NES</li>
                       <li>N64</li>
