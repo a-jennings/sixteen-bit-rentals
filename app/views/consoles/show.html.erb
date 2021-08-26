@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg');" style="height:calc(100vh - 64px);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg');height:calc(100vh - 64px);">
   <div class="container">
     <h1><%= @console.name %></h1>
     <p> Price per day: £<%= @console.price_per_day %> <br> Minimum rental time: <%= @console.min_rental_time %> days <br>Maximum rental time: <%= @console.max_rental_time %> days</p>
@@ -11,11 +11,38 @@
     <%= link_to 'Back', consoles_path, class: "nes-btn is-secondary" %>
     <p class="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia possimus est nulla totam debitis voluptatum fugiat qui atque tenetur, eos repudiandae excepturi adipisci officiis error labore maiores minima modi nemo.</p>
   </div>
--  <% if @rental %>
-    <div class="container">
-      <a href="#" class="nes-badge">
-        <span class="is-error">Currently rented</span>
-      </a>
-    </div>
-  <% end %>
+
+  <div class="container">
+    <% if @console.user == current_user.id %>
+      <%= link_to profile_path, class: "nes-badge" do %>
+        <span class="is-primary">Owned by you</span>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(@console.user), class: "nes-badge" do %>
+        <span class="is-primary">Owned by <%= @console.user.first_name %></span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%# Below will change once rentals can be approved etc %>
+
+  <%# <% if @rental %> %>
+    <%# <div class="container"> %>
+      <%# <%= link_to rental_path(@rental), class: "nes-badge" do %> %>
+        <%# <% if @console.rentals[0].current_renter_id == current_user.id %> %>
+          <%# <span class="is-error">You are renting this console</span> %>
+        <%# <% else %> %>
+          <%# <span class="is-error">Currently rented</span> %>
+        <%# <% end %> %>
+      <%# <% end %> %>
+    <%# </div> %>
+  <%# <% end %> %>
 </div>
+
+<%# <h2>Current</h2> %>
+
+<%# <div class="container"> %>
+  <%# <div class="nes-container"> %>
+
+  <%# </div> %>
+<%# </div> %>

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # resources :users, only: %i[show new create destroy]
   root to: 'pages#home'
   devise_for :users
-  get '/profile', to: 'users#profile'
-  get '/users/:id', to: 'users#show'
+  get '/profile', to: 'users#profile', as: 'profile'
+  get '/users/:id', to: 'users#show', as: 'user'
   resources :consoles do
     resources :rentals, only: %i[new create edit update show]
   end
