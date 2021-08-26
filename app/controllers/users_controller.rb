@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   def profile
     @user = current_user
     @consoles = current_user.consoles
+    @rentals = current_user.rentals
+    # raise
   end
 
   def show
