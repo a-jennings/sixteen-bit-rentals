@@ -8,7 +8,7 @@
     <h4>How long would you like to rent this console for? (Between <%= @console.min_rental_time %> and <%= @console.max_rental_time %> days) </h4>
     <%= simple_form_for [@console, @rental] do |f| %>
       <%= f.input :start_rental_date, as: :date, html5: true, input_html: { class: "nes-input" } %>
-      <%= f.input :end_rental_date, as: :date, html5: true %>
+      <%= f.input :end_rental_date, as: :date, html5: true, input_html: { class: "nes-input" } %>
       <%= f.submit class: "nes-btn is-primary" %>
       <%= link_to 'Back', console_path(@console), class: "nes-btn is-secondary" %>
     <% end %>
