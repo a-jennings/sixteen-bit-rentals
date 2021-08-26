@@ -49,7 +49,11 @@
           <% @consoles_selection = @consoles.sample(4) %>
           <% @consoles_selection.each do |console| %>
           <div class="card-trip">
-            <%= cl_image_tag console.photo.key, height: 300, width: 400, crop: :fill %>
+            <% if console.photo.attached? %>
+              <%= cl_image_tag console.photo.key%>
+            <% else %>
+               <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+            <% end %>
             <div class="card-trip-infos">
               <div class="card-name-and-info-text">
                 <h2><%= link_to console.name, console_path(console) %></h2>
