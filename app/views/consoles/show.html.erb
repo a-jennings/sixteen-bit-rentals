@@ -3,7 +3,7 @@
     <h1><%= @console.name %></h1>
     <p> Price per day: £<%= @console.price_per_day %> <br> Minimum rental time: <%= @console.min_rental_time %> days <br>Maximum rental time: <%= @console.max_rental_time %> days</p>
     <%# <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
-    <% if @rental %>
+    <% if @rented %>
       <%= link_to "Rent", "#", class: "nes-btn is-disabled" %>
     <% else %>
       <%= link_to "Rent", new_console_rental_path(console_id: @console), class: "nes-btn is-primary" %>
@@ -11,11 +11,12 @@
     <%= link_to 'Back', consoles_path, class: "nes-btn is-secondary" %>
     <p class="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia possimus est nulla totam debitis voluptatum fugiat qui atque tenetur, eos repudiandae excepturi adipisci officiis error labore maiores minima modi nemo.</p>
   </div>
--  <% if @rental %>
+-  <% if @rented %>
     <div class="container">
       <a href="#" class="nes-badge">
         <span class="is-error">Currently rented</span>
       </a>
+      <%= link_to 'Edit', edit_console_rental_path(@console, @rental) %>
     </div>
   <% end %>
 </div>

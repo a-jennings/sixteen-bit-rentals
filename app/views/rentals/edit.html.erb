@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="nes-container is-rounded">
+    <h1>Edit the rental for <%= @console.name %></h1>
+    <p>from <%= @owner.first_name %> <%= @owner.last_name %></p>
+    <h3>Rental price per day: $<%= @console.price_per_day %></h3>
+    <h6>Minimum rental time: <%= @console.min_rental_time %> days</h6>
+    <h6>Maximum rental time: <%= @console.max_rental_time %> days</h6>
+    <h4>How long would you like to rent this console for? (Between <%= @console.min_rental_time %> and <%= @console.max_rental_time %> days) </h4>
+    <%= simple_form_for [@console, @rental[0]] do |f| %>
+      <%= f.input :start_rental_date, as: :date, html5: true, input_html: { class: "nes-input", min: Date.today.to_s } %>
+      <%= f.input :end_rental_date, as: :date, html5: true, input_html: { class: "nes-input",
+                                                                          min: (Date.today + @console.min_rental_time).to_s,
+                                                                          max: (Date.today + @console.max_rental_time).to_s } %>
+      <%= f.submit class: "nes-btn is-primary" %>
+      <%= link_to 'Back', console_path(@console), class: "nes-btn is-secondary" %>
+    <% end %>
+  </div>
+</div>
