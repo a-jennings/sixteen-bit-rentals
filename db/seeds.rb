@@ -22,13 +22,14 @@ test_user = User.create(
   )
 
 8.times do
-    test_user.consoles.create(
+    console_test = test_user.consoles.new(
       name: Faker::Game.platform,
+      description: Faker::Lorem.sentence(word_count: rand(10..20)),
       price_per_day: rand(0.00..99.99),
       min_rental_time: rand(0..14),
-      max_rental_time: rand(15..30)
+      max_rental_time: rand(15..30),
     )
-    puts "#console for #{test_user.first_name} generated"
+    puts console_test.save!
   end
 
 puts "created test user account"
@@ -47,7 +48,7 @@ puts "generating users"
   rand(0..10).times do
     user.consoles.create(
       name: Faker::Game.platform,
-      description: Faker::Lorem.sentence(word_count: 10, supplemental: true, random_words_to_add: 245),
+      description: Faker::Lorem.sentence(word_count: rand(10..20)),
       price_per_day: rand(1.00..49.99),
       min_rental_time: rand(0..14),
       max_rental_time: rand(15..30)
