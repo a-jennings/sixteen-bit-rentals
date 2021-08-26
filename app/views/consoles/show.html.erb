@@ -30,7 +30,7 @@
         <% if @rental.approved? == false %>
           <span class="is-warning">Awaiting Confirmation</span>
         <% else %>
-          <% if @rental.current_renter_id == current_user.id %>
+          <% if current_user && @rental.current_renter_id == current_user.id %>
             <span class="is-error">Rented by you</span>
           <% else %>
             <span class="is-error">Currently rented</span>
