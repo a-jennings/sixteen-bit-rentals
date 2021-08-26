@@ -9,6 +9,18 @@
       <% end %>
   <% end %>
 
+<div style="flex-grow:1;">
+  <%= form_tag consoles_path, method: :get, class:'d-flex' do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "nes-textarea",
+      # style: "padding: 8px 0px;",
+      placeholder: "Find a console"
+    %>
+    <%= submit_tag "Search", class: "nes-btn is-primary", style: 'margin: 4px 6px;'%>
+  <% end %>
+</div>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,11 +29,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <%# <li class="nav-item active">
           <%= link_to consoles_path, class: "nav-link" do %>
-            <i class="fas fa-home" id= 'icon'></i>
-          <% end %>
-        </li>
+            <%# <i class="fas fa-home" id= 'icon'></i> %>
+          <%# <% end %>
+        <%# </li> %>
         <%# <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
         <%# </li> %>
@@ -35,7 +47,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link nes-btn is-success", style: 'padding: 8px 8px; color:white;'%>
         </li>
       <% end %>
     </ul>
