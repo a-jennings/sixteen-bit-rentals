@@ -15,10 +15,16 @@ class RentalsController < ApplicationController
                          user_id: @owner.id,
                          current_renter_id: current_user.id)
     if @rental.save
-      redirect_to console_path(@console)
+      redirect_to console_rental_path(@console.id, @rental)
     else
       render :new
     end
+  end
+
+  def show
+    @console = Console.find(params[:console_id])
+    @rental = Rental.where(console_id: params[:console_id])
+
   end
 
   def edit
