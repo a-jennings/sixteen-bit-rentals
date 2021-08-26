@@ -4,11 +4,11 @@
 
     <h2>You are renting <%= @console.name %>!</h2>
 
-    <h3>Start rental date: <%= @rental[0].start_rental_date %></h3>
-    <h3>End rental date: <%= @rental[0].end_rental_date %></h3>
+    <h3>Start rental date: <%= @rental.start_rental_date %></h3>
+    <h3>End rental date: <%= @rental.end_rental_date %></h3>
 
     <h2>Total Cost:</h2>
-    <h3>$<%= (@console.price_per_day * (@rental[0].end_rental_date - @rental[0].start_rental_date)).to_i %></h3>
+    <h3>$<%= (@console.price_per_day * (@rental.end_rental_date - @rental.start_rental_date)).to_i %></h3>
 
     <%= link_to 'Back', console_path(@console), class: "nes-btn is-secondary" %>
   </div>

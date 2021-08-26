@@ -16,7 +16,8 @@
       <a href="#" class="nes-badge">
         <span class="is-error">Currently rented</span>
       </a>
-      <%= link_to 'Edit', edit_console_rental_path(@console, @rental) %>
+      <br>
+      <%= link_to 'Edit', edit_console_rental_path(@console, @rental), class: "nes-btn is-warning" %>
     </div>
   <% end %>
 </div>
