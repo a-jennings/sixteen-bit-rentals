@@ -15,7 +15,7 @@ class ConsolesController < ApplicationController
     @rental = Rental.where(console_id: params[:console_id])
   end
 
-  def new3
+  def new
     @console = Console.new
   end
 

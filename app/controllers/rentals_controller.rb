@@ -35,13 +35,8 @@ class RentalsController < ApplicationController
   def update
     @console = Console.find(params[:console_id])
     @owner = User.find(@console.user_id)
-    @rental = Rental.update(start_rental_date: rental_params[:start_rental_date],
-                            end_rental_date: rental_params[:end_rental_date])
-    if @rental.save
-      redirect_to console_rental_path(@console.id, @rental)
-    else
-      render :new
-    end
+    @rental.update(start_rental_date: rental_params[:start_rental_date],
+                   end_rental_date: rental_params[:end_rental_date])
   end
 
   def destroy
