@@ -51,6 +51,6 @@ class ConsolesController < ApplicationController
   end
 
   def console_params
-    params.require(:console).permit(:name, :price_per_day, :min_rental_time, :max_rental_time)
+    params.require(:console).permit(:name, :price_per_day, :min_rental_time, :max_rental_time, :description)
   end
 end

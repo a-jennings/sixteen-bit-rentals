@@ -12,14 +12,26 @@ Console.destroy_all
 User.destroy_all
 puts "cleaned database"
 
-User.create(
+test_user = User.create(
     email: "test@test.com",
     password: "password",
     first_name: "tester",
     last_name: "testerson",
     address: "test drive, testville, los testos",
     phone_number: "07123456789"
-)
+  )
+
+8.times do
+    console_test = test_user.consoles.new(
+      name: Faker::Game.platform,
+      description: Faker::Lorem.sentence(word_count: rand(10..20)),
+      price_per_day: rand(0.00..99.99),
+      min_rental_time: rand(0..14),
+      max_rental_time: rand(15..30),
+    )
+    puts console_test.save!
+  end
+
 puts "created test user account"
 
 puts "generating users"
@@ -36,7 +48,7 @@ puts "generating users"
   rand(0..10).times do
     user.consoles.create(
       name: Faker::Game.platform,
-      description: Faker::Lorem.sentence(word_count: 10, supplemental: true, random_words_to_add: 245),
+      description: Faker::Lorem.sentence(word_count: rand(10..20)),
       price_per_day: rand(1.00..49.99),
       min_rental_time: rand(0..14),
       max_rental_time: rand(15..30)

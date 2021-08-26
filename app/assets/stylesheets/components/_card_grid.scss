@@ -3,10 +3,11 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
+  gap: 8px;
 
   a, a:hover {
-    text-shadow: 4px 4px 0 rgba(0,0,0,0.3);
-    color: white;
+    // text-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+    color: black;
   }
 }
 

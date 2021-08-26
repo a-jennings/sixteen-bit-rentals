@@ -12,8 +12,6 @@ class Rental < ApplicationRecord
       errors.add(:end_rental_date, "cannot be in the past")
     end
 
-    if start_rental_date > end_rental_date
-      errors.add(:end_rental_date, "cannot be before start date")
-    end
+    errors.add(:end_rental_date, "cannot be before start date") if start_rental_date > end_rental_date
   end
 end

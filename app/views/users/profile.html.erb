@@ -1,60 +1,67 @@
 <div class="row py-5 px-4">
-    <div class="col-md-8 mx-auto">
-        <div class="nes-container overflow-hidden">
-            <div class="px-4 pt-0 pb-4 cover">
-                <div class="media align-items-end profile-head">
-                    <div class="profile mr-3"><img src="https://res.cloudinary.com/xanldn89/image/upload/v1629891408/me2_floqpd.jpg" alt="..." width="130" class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a></div>
-                    <div class="media-body mb-5 text-white">
-                        <h4 class="mt-0 mb-0">Xander</h4>
-                        <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>London</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-light p-4 d-flex justify-content-end text-center">
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">4</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Consoles</small>
-                    </li>
-                    <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block">45</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Rentals</small>
-                    </li>
-                    <li class="list-inline-item">
-                        <h5 class="font-weight-bold mb-0 d-block" style="font-size:16px;">
-                          <%# @user.rating.times do %><% 5.times do %>
-                            👾
-                          <% end %>
-                        </h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Rating</small>
-                    </li>
-                </ul>
-            </div>
-            <div class="px-4 py-3">
-                <h5 class="mb-0">About</h5>
-                <div class="p-4 rounded shadow-sm bg-light">
-                    <p class="font-italic mb-0">Web Developer</p>
-                    <p class="font-italic mb-0">Lives in London</p>
-                    <p class="font-italic mb-0">Gamer</p>
-                </div>
-            </div>
-            <div class="py-4 px-4">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                    <h5 class="mb-0">My consoles</h5><%= link_to 'Add a console', new_console_path %><a href="#" class="btn btn-link text-muted">Show all</a>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" alt="" class="img-fluid rounded shadow-sm"><div class="centered">SNES</div></div>
-                    <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" alt="" class="img-fluid rounded shadow-sm"><div class="centered">SEGA SATURN</div></div>
-                    <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" alt="" class="img-fluid rounded shadow-sm"><div class="centered">SNES</div></div>
-                    <div class="col-lg-6 pl-lg-1"><img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" alt="" class="img-fluid rounded shadow-sm"><div class="centered">GAMEBOY</div></div>
-                    <div class="col-lg-6 pl-lg-1"> <p>I am renting:</p>
-                    <ul>
-                      <li>Playstation 4</li>
-                      <li>NES</li>
-                      <li>N64</li>
-                    </ul>
-
-                    </div>
-
-                </div>
-            </div>
+  <div class="col-md-8 mx-auto">
+    <div class="nes-container overflow-hidden">
+      <div class="px-4 pt-0 pb-4 cover">
+        <div class="media align-items-end profile-head">
+          <div class="profile mr-3"><img
+              src="https://res.cloudinary.com/xanldn89/image/upload/v1629891408/me2_floqpd.jpg" alt="..." width="130"
+              class="rounded mb-2 img-thumbnail"><a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit
+              profile</a></div>
+          <div class="media-body mb-5 text-white">
+            <h4 class="mt-0 mb-0"><%= @user.first_name %></h4>
+            <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i><%= @user.address %></p>
+          </div>
         </div>
+      </div>
+      <div class="bg-light p-4 d-flex justify-content-end text-center">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item">
+            <%# <%  raise %>
+            <h5 class="font-weight-bold mb-0 d-block"><%= @consoles.count %></h5><small class="text-muted"> <i
+                class="fas fa-image mr-1"></i>Consoles</small>
+          </li>
+          <li class="list-inline-item">
+            <h5 class="font-weight-bold mb-0 d-block"><%= @rentals.count %> </h5><small class="text-muted"> <i
+                class="fas fa-user mr-1"></i>Rentals</small>
+          </li>
+          <li class="list-inline-item">
+            <h5 class="font-weight-bold mb-0 d-block" style="font-size:16px;">
+              <%# @user.rating.times do %><% 5.times do %>
+              👾
+              <% end %>
+            </h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Rating</small>
+          </li>
+        </ul>
+      </div>
+      <div class="px-4 py-3">
+        <h5 class="mb-0">About</h5>
+        <div class="p-4 rounded shadow-sm bg-light">
+          <p class="font-italic mb-0">Web Developer</p>
+          <p class="font-italic mb-0">Lives in London</p>
+          <p class="font-italic mb-0">Gamer</p>
+        </div>
+      </div>
+      <div class="py-4 px-4">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h5 class="mb-0">My consoles</h5><%= link_to 'Add a console', new_console_path, class: "nes-btn is-success" %><%# <a href="#" class="btn btn-link text-muted">Show all</a> %>
+        </div>
+        <div class="cards">
+          <% @consoles_selection = @consoles.sample(4) %>
+          <% @consoles_selection.each do |console| %>
+          <div class="card-trip">
+            <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+            <div class="card-trip-infos">
+              <div class="card-name-and-info-text">
+                <h2><%= link_to console.name, console_path(console) %></h2>
+                <p><%= "some text" %></p>
+              </div>
+              <h2 class="card-trip-pricing">£<%= console.price_per_day %> per day</h2>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 </div>
