@@ -2,6 +2,25 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+.profile-card-image-edit-button > img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.profile-card-image-edit-button {
+  display: inline-block;
+  position: relative;
+  max-width: 300px;
+}
+
+.edit-button {
+  position: absolute !important;
+  left: 5px;
+  top: 5px;
+  padding: 1em 1.5em;
 }
 
 .card-trip > img {
