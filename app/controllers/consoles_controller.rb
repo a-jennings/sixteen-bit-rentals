@@ -3,7 +3,11 @@ class ConsolesController < ApplicationController
   before_action :console_list, only: %i[show edit update]
 
   def index
-    @consoles = Console.all
+    if params[:query].present?
+      @consoles = Console.search_by_name(params[:query])
+    else
+      @consoles = Console.all
+    end
   end
 
   def show
