@@ -1,7 +1,6 @@
-<h1 class="text-center">Consoles for rent</h1>
-
 <div class="cards">
-  <% @consoles.each do |console| %>
+  <% @consoles_selection = @consoles.sample(12) %>
+  <% @consoles_selection.each do |console| %>
   <div class="card-trip">
     <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
     <div class="card-trip-infos">

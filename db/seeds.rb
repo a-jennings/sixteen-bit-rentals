@@ -21,7 +21,7 @@ test_user = User.create(
     phone_number: "07123456789"
   )
 
-rand(0..10).times do
+8.times do
     test_user.consoles.create(
       name: Faker::Game.platform,
       price_per_day: rand(0.00..99.99),

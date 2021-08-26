@@ -1,5 +1,4 @@
 class RentalsController < ApplicationController
-
   def new
     @console = Console.find(params[:console_id])
     @owner = User.find(@console.user_id)
@@ -24,7 +23,6 @@ class RentalsController < ApplicationController
   def show
     @console = Console.find(params[:console_id])
     @rental = Rental.where(console_id: params[:console_id])
-
   end
 
   def edit
