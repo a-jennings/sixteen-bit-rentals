@@ -48,7 +48,9 @@
             <% @consoles.each do |console| %>
               <div class="card-trip">
                 <div class="profile-card-image-edit-button">
-                  <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+                  <%= link_to console_path(console) do %>
+                    <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+                  <% end %>
                   <%# <%= link_to 'Edit', edit_console_path(console), class: "nes-btn is-warning edit-button" %>
                 </div>
                 <div class="card-trip-infos">

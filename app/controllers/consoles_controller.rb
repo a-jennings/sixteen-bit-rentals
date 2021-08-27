@@ -41,8 +41,11 @@ class ConsolesController < ApplicationController
   end
 
   def destroy
-    @console.destroy
-    redirect_to profile_path, notice: 'Console was successfully deleted 👍'
+    if @console.destroy
+      redirect_to profile_path, notice: 'Console was successfully deleted 👍'
+    else
+      redirect_to profile_path, alert: "Cannot delete a console while it's rented"
+    end
   end
 
   private
