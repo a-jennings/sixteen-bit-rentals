@@ -43,9 +43,7 @@
       <div class="px-4 py-3">
         <h5 class="mb-0">About</h5>
         <div class="p-4 rounded shadow-sm bg-light">
-          <p class="font-italic mb-0">Web Developer</p>
-          <p class="font-italic mb-0">Lives in London</p>
-          <p class="font-italic mb-0">Gamer</p>
+          <p class="font-italic mb-0"><%= current_user.about %></p>
         </div>
       </div>
       <div class="py-4 px-4">
@@ -54,39 +52,89 @@
           <%= link_to 'Add a console', new_console_path, class: "nes-btn is-success" %><%# <a href="#" class="btn btn-link text-muted">Show all</a> %>
         </div>
         <div class="cards">
-          <% @consoles_selection = @consoles.sample(4) %>
-          <% @consoles_selection.each do |console| %>
-          <div class="card-trip">
-            <div class="profile-card-image-edit-button">
-              <% if console.photo.attached? %>
-                <%= cl_image_tag console.photo.key, style:'object-fit:cover;'%>
-              <% else %>
-                <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
-              <% end %>
-              <%= link_to 'Edit', edit_console_path(console), class: "nes-btn is-warning edit-button" %>
+
+
+          <% if @consoles.empty? %>
+            <div>
+              <h4>You don't have any consoles to rent ): Add one now!</h4>
             </div>
-            <div class="card-trip-infos">
-              <div class="card-name-and-info-text">
-                <h2><%= link_to console.name, console_path(console) %></h2>
-                <p><%= "some text" %></p>
+          <% else %>
+            <% @consoles.each do |console| %>
+              <div class="card-trip">
+                <div class="profile-card-image-edit-button">
+                  <% if console.photo.attached? %>
+                    <%= cl_image_tag console.photo.key, style:'object-fit:cover;'%>
+                  <% else %>
+                    <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+                  <% end %>
+                  <%= link_to 'Edit', edit_console_path(console), class: "nes-btn is-warning edit-button", style: 'padding: 8px 4px;' %>
+                </div>
+                <div class="card-trip-infos">
+                  <div class="card-name-and-info-text">
+                    <h2><%= link_to console.name, console_path(console) %></h2>
+                    <p><%= console.description %></p>
+                  </div>
+                  <% if console.rentals[0] %>
+                    <div class="card-badge">
+                      <% if console.rentals[0].approved? %>
+                        <%= link_to console_rental_path(rental.console, rental), class: "nes-badge is-icon", style: "height:100%;" do %>
+                          <span class="is-error">Rented</span>
+                        <% end %>
+                      <% else %>
+                        <%= link_to console_rental_path(rental.console, rental), class: "nes-badge is-icon", style: "height:100%;" do %>
+                          <span class="is-warning">Pending</span>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  <% else %>
+                    <h2 class="card-trip-pricing">£<%= console.price_per_day %> per day</h2>
+                  <% end %>
+                </div>
               </div>
-              <%# <%= raise %>
-              <% if console.rentals[0] %>
-
-              <%# <a href="#" class="nes-badge is-icon">
-                <span class="is-dark">6 days</span>
-                <span class="is-warning">Rented</span>
-              </a> %>
-              <%# <%= link_to console_path(console), class: "nes-badge" do %>
-              <%# <span class="is-warning">Rented</span> %>
-              <%# <% end %>
-              <h2>Rented!</h2>
-
-              <% else %>
-              <h2 class="card-trip-pricing">£<%= console.price_per_day %> per day</h2>
-              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="py-4 px-4">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h5 class="mb-0">My rentals</h5>
+          <%= link_to 'Rent a console', consoles_path, class: "nes-btn is-primary" %>
+        </div>
+        <div class="cards">
+          <% if @rentals.empty? %>
+            <div>
+              <h4>You're not renting any consoles ): Rent one now!</h4>
             </div>
-          </div>
+          <% else %>
+            <% @rentals.each do |rental| %>
+              <div class="card-trip">
+                <div class="profile-card-image-edit-button">
+                  <% if console.photo.attached? %>
+                    <%= cl_image_tag console.photo.key, style:'object-fit:cover;'%>
+                  <% else %>
+                    <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+                  <% end %>
+                  <%# <%= link_to 'Edit', edit_console_path(console), class: "nes-btn is-warning edit-button", style: 'padding: 8px 4px;' %>
+                </div>
+                <div class="card-trip-infos">
+                  <div class="card-name-and-info-text">
+                    <h2><%= link_to rental.console.name, console_path(rental.console) %></h2>
+                    <p><%= rental.console.description %></p>
+                  </div>
+                  <div class="card-badge">
+                    <% if rental.approved? %>
+                      <%= link_to console_rental_path(rental.console, rental), class: "nes-badge is-icon", style: "height:100%;" do %>
+                        <span class="is-error">Rented</span>
+                      <% end %>
+                    <% else %>
+                      <%= link_to console_rental_path(rental.console, rental), class: "nes-badge is-icon", style: "height:100%;" do %>
+                        <span class="is-warning">Pending</span>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>

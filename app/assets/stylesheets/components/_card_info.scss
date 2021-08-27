@@ -2,7 +2,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
+  border: black 4px solid;
 }
 
 .profile-card-image-edit-button > img {
@@ -43,7 +43,6 @@
   margin: 0;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -66,5 +65,16 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+}
+
+.card-badge {
+  position: relative;
+  .nes-badge.is-icon span.is-error:last-child,
+  .nes-badge.is-icon span.is-warning:last-child {
+  position: absolute;
+  top: -18px;
+  left: 0;
+  display: flex;
   }
 }

@@ -1,7 +1,7 @@
 class ConsolesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :console_list, only: %i[show edit update]
   before_action :user_list
+  before_action :console_list, only: %i[show edit update destroy]
 
 
   def index
@@ -33,7 +33,7 @@ class ConsolesController < ApplicationController
   def edit; end
 
   def update
-    if console.update(console_params)
+    if @console.update(console_params)
       redirect_to @console, notice: 'Console was successfully updated 👍'
     else
       render :new
@@ -41,9 +41,8 @@ class ConsolesController < ApplicationController
   end
 
   def destroy
-    @console = console.destroy(params[:id])
     @console.destroy
-    redirect_to consoles_path, notice: 'Console was successfully destroyed 👍'
+    redirect_to profile_path, notice: 'Console was successfully deleted 👍'
   end
 
   private
