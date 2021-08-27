@@ -2,6 +2,10 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner h1 {
