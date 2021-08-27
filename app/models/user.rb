@@ -10,4 +10,5 @@ class User < ApplicationRecord
                                      message: "Please use only numbers 0-9 and punctuation: +.-/()" }
   has_many :consoles, dependent: :destroy
   has_many :rentals
+  has_one_attached :photo
 end

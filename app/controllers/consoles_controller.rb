@@ -1,6 +1,8 @@
 class ConsolesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :console_list, only: %i[show edit update]
+  before_action :user_list
+
 
   def index
     if params[:query].present?
@@ -41,10 +43,14 @@ class ConsolesController < ApplicationController
   def destroy
     @console = console.destroy(params[:id])
     @console.destroy
-    redirect_to consoles_path, notice: 'Console was successfully updated 👍'
+    redirect_to consoles_path, notice: 'Console was successfully destroyed 👍'
   end
 
   private
+
+  def user_list
+    @user = current_user
+  end
 
   def console_list
     @console = Console.find(params[:id])

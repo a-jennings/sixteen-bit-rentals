@@ -3,9 +3,13 @@
     <div class="nes-container overflow-hidden">
       <div class="px-4 pt-0 pb-4 cover">
         <div class="media align-items-end profile-head">
-          <div class="profile mr-3"><img
-              src="https://res.cloudinary.com/xanldn89/image/upload/v1629891408/me2_floqpd.jpg" alt="..." width="130"
+          <div class="profile mr-3">
+            <% if @user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key, style: 'width: 130px;', class:'rounded-circle img-thumbnail' %>
+            <% else %>
+              <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629891408/me2_floqpd.jpg" alt="..." width="130"
               class="rounded mb-2 img-thumbnail">
+            <% end %>
             <%# <a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit
               profile</a> %>
             <%= link_to 'Edit Profile', edit_user_registration_path, class: "nes-btn is-normal", style: "display: block;" %>

@@ -7,6 +7,7 @@
       <%= f.input :min_rental_time, input_html: { class: "nes-input" } %>
       <%= f.input :max_rental_time, input_html: { class: "nes-input" } %>
       <%= f.input :description, input_html: { class: "nes-textarea" } %>
+      <%= f.input :photo, as: :file %>
       <%= f.submit class: "nes-btn is-primary" %>
       <%= link_to 'Back', consoles_path, class: "nes-btn is-secondary" %>
     <% end %>
