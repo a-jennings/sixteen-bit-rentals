@@ -28,7 +28,7 @@
     <div class="card-trip-infos">
       <div class="card-name-and-info-text">
         <h2><%= link_to console.name, console_path(console) %></h2>
-        <p><%= "some text" %></p>
+        <p><%= console.description %></p>
       </div>
       <h2 class="card-trip-pricing">£<%= console.price_per_day %> per day</h2>
       <% if console.user.photo.attached? %>
