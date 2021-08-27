@@ -26,6 +26,8 @@
                     required: true,
                     input_html: { autocomplete: "current-password",
                                   class: "nes-input" } %>
+        <%= f.input :address, input_html: { class: "nes-input" } %>
+        <%= f.input :photo, as: :file %>
       </div>
 
       <div class="form-actions">
@@ -33,7 +35,8 @@
       </div>
     <% end %>
 
-    <h3>Cancel my account</h3>
+
+<h3>Cancel my account</h3>
 
     <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" },
                                                                        method: :delete,

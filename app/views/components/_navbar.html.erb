@@ -37,17 +37,22 @@
       <%# </li> %>
       <%# <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
-      <%# </li> %>
-      <li class="nav-item dropdown">
-        <div class="nes-container is-rounded" style="padding:0;">
-          <%= image_tag "https://res.cloudinary.com/xanldn89/image/upload/v1629891191/me_lmktss.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", profile_path , class: "dropdown-item" %>
-            <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <%# </li> %>
+        <li class="nav-item dropdown">
+          <div class="nes-container is-rounded" style="padding:0;">
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://res.cloudinary.com/xanldn89/image/upload/v1629891191/me_lmktss.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "Profile", profile_path , class: "dropdown-item" %>
+              <%= link_to "Add a console", new_console_path , class: "dropdown-item" %>
+              <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
       <% else %>
       <li class="nav-item">
         <%= link_to "Login", new_user_session_path, class: "nav-link nes-btn is-success", style: 'padding: 8px 8px; color:white;'%>
