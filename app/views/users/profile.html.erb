@@ -62,10 +62,12 @@
             <% @consoles.each do |console| %>
               <div class="card-trip">
                 <div class="profile-card-image-edit-button">
-                  <% if console.photo.attached? %>
-                    <%= cl_image_tag console.photo.key, style:'object-fit:cover;'%>
-                  <% else %>
-                    <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+                  <%= link_to console_path(console) do %>
+                    <% if console.photo.attached? %>
+                      <%= cl_image_tag console.photo.key, style:'object-fit:cover;'%>
+                    <% else %>
+                      <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+                    <% end %>
                   <% end %>
                   <%= link_to 'Edit', edit_console_path(console), class: "nes-btn is-warning edit-button", style: 'padding: 8px 4px;' %>
                 </div>
@@ -109,10 +111,12 @@
             <% @rentals.each do |rental| %>
               <div class="card-trip">
                 <div class="profile-card-image-edit-button">
-                  <% if rental.console.photo.attached? %>
-                    <%= cl_image_tag rental.console.photo.key, style:'object-fit:cover;'%>
-                  <% else %>
-                    <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+                  <%= link_to console_path(rental.console) do %>
+                    <% if rental.console.photo.attached? %>
+                      <%= cl_image_tag rental.console.photo.key, style:'object-fit:cover;'%>
+                    <% else %>
+                      <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+                    <% end %>
                   <% end %>
                   <%# <%= link_to 'Edit', edit_console_path(console), class: "nes-btn is-warning edit-button", style: 'padding: 8px 4px;' %>
                 </div>

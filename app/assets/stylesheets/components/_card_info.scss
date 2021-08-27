@@ -24,11 +24,16 @@
   padding: 1em 1.5em;
 }
 
-.card-trip > img {
+.card-trip > a {
+  display: block;
   height: 200px;
-  width: 300px;
-  object-fit: cover;
   max-width: 300px;
+}
+
+.card-trip img {
+  width: 100%;
+  max-width: 300px;
+  object-fit: cover;
 }
 
 .card-trip h2 {
