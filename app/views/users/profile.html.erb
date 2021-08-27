@@ -67,11 +67,11 @@
                   <% if console.rentals[0] %>
                     <div class="card-badge">
                       <% if console.rentals[0].approved? %>
-                        <%= link_to console_rental_path(rental.console, rental), class: "nes-badge is-icon", style: "height:100%;" do %>
+                        <%= link_to console_rental_path(console, console.rentals[0]), class: "nes-badge is-icon", style: "height:100%;" do %>
                           <span class="is-error">Rented</span>
                         <% end %>
                       <% else %>
-                        <%= link_to console_rental_path(rental.console, rental), class: "nes-badge is-icon", style: "height:100%;" do %>
+                        <%= link_to console_rental_path(console, console.rentals[0]), class: "nes-badge is-icon", style: "height:100%;" do %>
                           <span class="is-warning">Pending</span>
                         <% end %>
                       <% end %>
