@@ -12,7 +12,7 @@
                                                                           min: (Date.today + @console.min_rental_time).to_s,
                                                                           max: (Date.today + @console.max_rental_time).to_s } %>
       <%= f.submit class: "nes-btn is-primary" %>
-      <%= link_to 'Back', console_path(@console), class: "nes-btn is-secondary" %>
+      <%= link_to 'Back', :back, class: "nes-btn is-secondary" %>
     <% end %>
   </div>
 </div>

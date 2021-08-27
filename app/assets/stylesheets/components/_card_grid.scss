@@ -3,18 +3,10 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
-  gap: 8px;
+  gap: 32px;
 
   a, a:hover {
     // text-shadow: 4px 4px 0 rgba(0,0,0,0.3);
     color: black;
   }
-}
-
-.card-category {
-  flex: 0 1 30%;
-  margin: 16px 8px;
-  max-width: 400px;
-  min-width: 300px;
-  text-align: center;
 }
