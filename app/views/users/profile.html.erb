@@ -5,7 +5,7 @@
         <div class="media align-items-end profile-head">
           <div class="profile mr-3">
             <% if @user.photo.attached? %>
-              <%= cl_image_tag @user.photo.key, style: 'width: 130px;', class:'rounded-circle img-thumbnail' %>
+              <%= cl_image_tag @user.photo.key, style: 'width: 130px;', class:'rounded mb-2 img-thumbnail' %>
             <% else %>
               <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629891408/me2_floqpd.jpg" alt="..." width="130"
               class="rounded mb-2 img-thumbnail">
@@ -109,8 +109,8 @@
             <% @rentals.each do |rental| %>
               <div class="card-trip">
                 <div class="profile-card-image-edit-button">
-                  <% if console.photo.attached? %>
-                    <%= cl_image_tag console.photo.key, style:'object-fit:cover;'%>
+                  <% if rental.console.photo.attached? %>
+                    <%= cl_image_tag rental.console.photo.key, style:'object-fit:cover;'%>
                   <% else %>
                     <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
                   <% end %>
