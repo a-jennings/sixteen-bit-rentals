@@ -1,17 +1,19 @@
 <h1 class="text-center">Consoles for rent</h1>
 
-<div class="cards">
-  <% @consoles.each do |console| %>
-  <div class="card-trip">
-    <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
-    <div class="card-trip-infos">
-      <div class="card-name-and-info-text">
-        <h2><%= link_to console.name, console_path(console) %></h2>
-        <p><%= "some text" %></p>
+<div class="container">
+  <div class="cards">
+    <% @consoles.each do |console| %>
+    <div class="card-trip">
+      <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+      <div class="card-trip-infos">
+        <div class="card-name-and-info-text">
+          <h2><%= link_to console.name, console_path(console) %></h2>
+          <p><%= console.description %></p>
+        </div>
+        <h2 class="card-trip-pricing">£<%= console.price_per_day %> per day</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
       </div>
-      <h2 class="card-trip-pricing">£<%= console.price_per_day %> per day</h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
+    <% end %>
   </div>
-  <% end %>
 </div>

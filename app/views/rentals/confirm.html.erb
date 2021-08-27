@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="nes-container is-rounded">
+    <h1>Approve Rental</h1>
+
+    <h2><%= @renter.first_name %> wants to rent <%= @console.name %>!</h2>
+
+    <h3>Start rental date: <%= @rental.start_rental_date %></h3>
+    <h3>End rental date: <%= @rental.end_rental_date %></h3>
+
+    <h2>Total Income:</h2>
+    <h3>$<%= (@console.price_per_day * (@rental.end_rental_date - @rental.start_rental_date)).to_i %></h3>
+
+    <%= link_to 'Approve', console_approve_rental_path(@console, @rental), class: "nes-btn is-primary" %>
+    <%= link_to 'Decline', console_rental_path(@console, @rental), class: "nes-btn is-error",
+                                                                          method: :delete,
+                                                                          data: {confirm: "Are you sure?"} %>
+    <%= link_to 'Back', :back, class: "nes-btn is-secondary" %>
+  </div>
+</div>
