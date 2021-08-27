@@ -36,39 +36,78 @@
   </div>
 
 <% else %>
-  <div class="container">
-    <div class="nes-container is-rounded">
-      <h1>Rental Confirmation</h1>
 
-      <h2>You are renting <%= @console.name %>!</h2>
+  <% if @rental.approved? %>
+    <div class="container">
+      <div class="nes-container is-rounded">
+        <h1>Rental Confirmation</h1>
 
-      <table>
-        <tr>
-          <td>
-            <h3>Start rental date: </h3>
-          </td>
-          <td>
-            <h3><%= @rental.start_rental_date %></h3>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3>End rental date: </h3>
-          </td>
-          <td>
-            <h3><%= @rental.end_rental_date %></h3>
-          </td>
-        </tr>
-      </table>
+        <h2>You are renting <%= @console.name %>!</h2>
 
-      <h2>Total Cost:</h2>
-      <h3>$<%= (@console.price_per_day * (@rental.end_rental_date - @rental.start_rental_date)).to_i %></h3>
+        <table>
+          <tr>
+            <td>
+              <h3>Start rental date: </h3>
+            </td>
+            <td>
+              <h3><%= @rental.start_rental_date %></h3>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>End rental date: </h3>
+            </td>
+            <td>
+              <h3><%= @rental.end_rental_date %></h3>
+            </td>
+          </tr>
+        </table>
 
-      <%= link_to 'Edit', edit_console_rental_path(@console, @rental), class: "nes-btn is-warning" %>
-      <%= link_to 'Cancel Rental', console_rental_path(@console, @rental), class: "nes-btn is-error",
-                                                                            method: :delete,
-                                                                            data: {confirm: "Are you sure?"} %>
-      <%= link_to 'Back', :back, class: "nes-btn is-secondary" %>
+        <h2>Total Cost:</h2>
+        <h3>$<%= (@console.price_per_day * (@rental.end_rental_date - @rental.start_rental_date)).to_i %></h3>
+
+        <%= link_to 'Edit', edit_console_rental_path(@console, @rental), class: "nes-btn is-warning" %>
+        <%= link_to 'Cancel Rental', console_rental_path(@console, @rental), class: "nes-btn is-error",
+                                                                              method: :delete,
+                                                                              data: {confirm: "Are you sure?"} %>
+        <%= link_to 'Back', :back, class: "nes-btn is-secondary" %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <div class="container">
+      <div class="nes-container is-rounded">
+        <h1>Awaiting Confirmation</h1>
+
+        <h2>You have requested to rent <%= @console.name %>!</h2>
+
+        <table>
+          <tr>
+            <td>
+              <h3>Start rental date: </h3>
+            </td>
+            <td>
+              <h3><%= @rental.start_rental_date %></h3>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>End rental date: </h3>
+            </td>
+            <td>
+              <h3><%= @rental.end_rental_date %></h3>
+            </td>
+          </tr>
+        </table>
+
+        <h2>Total to be paid:</h2>
+        <h3>$<%= (@console.price_per_day * (@rental.end_rental_date - @rental.start_rental_date)).to_i %></h3>
+
+        <%= link_to 'Edit', edit_console_rental_path(@console, @rental), class: "nes-btn is-warning" %>
+        <%= link_to 'Cancel Rental', console_rental_path(@console, @rental), class: "nes-btn is-error",
+                                                                              method: :delete,
+                                                                              data: {confirm: "Are you sure?"} %>
+        <%= link_to 'Back', :back, class: "nes-btn is-secondary" %>
+      </div>
+    </div>
+  <% end %>
 <% end %>

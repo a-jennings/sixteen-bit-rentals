@@ -4,8 +4,24 @@
 
     <h2><%= @renter.first_name %> wants to rent <%= @console.name %>!</h2>
 
-    <h3>Start rental date: <%= @rental.start_rental_date %></h3>
-    <h3>End rental date: <%= @rental.end_rental_date %></h3>
+    <table>
+      <tr>
+        <td>
+          <h3>Start rental date: </h3>
+        </td>
+        <td>
+          <h3><%= @rental.start_rental_date %></h3>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>End rental date: </h3>
+        </td>
+        <td>
+          <h3><%= @rental.end_rental_date %></h3>
+        </td>
+      </tr>
+    </table>
 
     <h2>Total Income:</h2>
     <h3>$<%= (@console.price_per_day * (@rental.end_rental_date - @rental.start_rental_date)).to_i %></h3>
