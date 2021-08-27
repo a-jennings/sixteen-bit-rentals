@@ -8,7 +8,10 @@
       <%= f.input :max_rental_time, input_html: { class: "nes-input" } %>
       <%= f.input :description, input_html: { class: "nes-textarea" } %>
       <%= f.submit class: "nes-btn is-primary" %>
-      <%= link_to 'Back', consoles_path, class: "nes-btn is-secondary" %>
+      <%= link_to 'Delete', console_path, class: "nes-btn is-error",
+                                          method: :delete,
+                                          data: { confirm: "Are you sure?" } %>
+      <%= link_to 'Back', :back, class: "nes-btn is-secondary" %>
     <% end %>
   </div>
 </div>
