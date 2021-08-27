@@ -14,7 +14,13 @@
               <p><%= console.description %></p>
             </div>
             <h2 class="card-trip-pricing">£<%= console.price_per_day %> per day</h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            <% if console.user.photo.attached? %>
+              <%= cl_image_tag console.user.photo.key, class:'card-trip-user avatar-bordered' %>
+            <% else %>
+              <img
+                src="https://res.cloudinary.com/xanldn89/image/upload/c_thumb,w_200,g_face/v1630064327/stock_8_bit_hspodr.jpg"
+                alt="..." width="130" class="card-trip-user avatar-bordered">
+            <% end %>
           </div>
         </div>
       <% end %>

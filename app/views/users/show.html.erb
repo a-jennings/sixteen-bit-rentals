@@ -3,10 +3,12 @@
     <div class="nes-container overflow-hidden">
       <div class="px-4 pt-0 pb-4 cover">
         <div class="media align-items-end profile-head">
-          <div class="profile mr-3"><img
-              src="https://res.cloudinary.com/xanldn89/image/upload/v1629891408/me2_floqpd.jpg" alt="..." width="130"
+            <% if @user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key, style: 'width: 130px;', class:'rounded mb-2 img-thumbnail' %>
+            <% else %>
+              <img src="https://res.cloudinary.com/xanldn89/image/upload/c_thumb,w_200,g_face/v1630064327/stock_8_bit_hspodr.jpg" alt="..." width="130"
               class="rounded mb-2 img-thumbnail">
-          </div>
+            <% end %>
           <div class="media-body mb-5 text-white">
             <h4 class="mt-0 mb-0"><%= @user.first_name %></h4>
             <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i><%= @user.address %></p>
@@ -49,9 +51,12 @@
               <div class="card-trip">
                 <div class="profile-card-image-edit-button">
                   <%= link_to console_path(console) do %>
-                    <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+                    <% if console.photo.attached? %>
+                      <%= cl_image_tag console.photo.key, style:'object-fit:cover;'%>
+                    <% else %>
+                      <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+                    <% end %>
                   <% end %>
-                  <%# <%= link_to 'Edit', edit_console_path(console), class: "nes-btn is-warning edit-button" %>
                 </div>
                 <div class="card-trip-infos">
                   <div class="card-name-and-info-text">

@@ -10,7 +10,11 @@
   <% @consoles_selection.each do |console| %>
   <div class="card-trip">
     <%= link_to console_path(console) do %>
-      <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+      <% if console.photo.attached? %>
+        <%= cl_image_tag console.photo.key, style:'object-fit:cover;'%>
+      <% else %>
+        <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
+      <% end %>
     <% end %>
     <div class="card-trip-infos">
       <div class="card-name-and-info-text">
@@ -18,7 +22,13 @@
         <p><%= "some text" %></p>
       </div>
       <h2 class="card-trip-pricing">£<%= console.price_per_day %> per day</h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      <% if console.user.photo.attached? %>
+      <%= cl_image_tag console.user.photo.key, class:'card-trip-user avatar-bordered' %>
+      <% else %>
+      <img
+        src="https://res.cloudinary.com/xanldn89/image/upload/c_thumb,w_200,g_face/v1630064327/stock_8_bit_hspodr.jpg"
+        alt="..." width="130" class="card-trip-user avatar-bordered">
+      <% end %>
     </div>
   </div>
   <% end %>
