@@ -3,7 +3,7 @@
 <div class="container">
   <div class="cards">
     <% @consoles.each do |console| %>
-      <% if console.user_id != current_user.id %>
+      <% if !user_signed_in? || console.user_id != current_user.id %>
         <div class="card-trip">
           <%= link_to console_path(console) do %>
             <img src="https://res.cloudinary.com/xanldn89/image/upload/v1629884209/stock_console_lktnhq.jpg" />
